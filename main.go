@@ -37,12 +37,12 @@ func main() {
 			log.Fatal(err)
 		}
 
-		log.Printf("%q %s %q %q\n", mvPath, "-v", line[0], line[1])
+		log.Printf("%q %s %q %q\n", mvPath, "-vn", line[0], line[1])
 		if !reallyMove {
 			continue
 		}
 
-		cmd := exec.Command(mvPath, "-v", line[0], line[1])
+		cmd := exec.Command(mvPath, "-vn", line[0], line[1])
 		if err := cmd.Run(); err != nil {
 			log.Fatalf("move failed: %s", err.Error())
 		}
